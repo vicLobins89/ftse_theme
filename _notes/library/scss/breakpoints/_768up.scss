@@ -1,0 +1,358 @@
+/******************************************************************
+Site Name: Honey
+Author: Vic Lobins
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+
+html {
+	font-size: 14px;
+}
+
+
+/*********************
+FONT STYLES
+*********************/
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+	font-size: 0.8rem;
+}
+
+#inner-header {
+	position: relative;
+}
+
+.logo {
+	width: 270px;
+    margin: 1.5rem 1.75rem 1.5rem 6rem;
+	float: left;
+	
+	body:not(.is-mobile) & {
+		margin: 1.5rem 1.75rem;
+	}
+}
+
+.social {
+	margin: 1.1rem 1rem 1.1rem 0;
+}
+
+.socket-nav {
+	display: block;
+	float: right;
+    margin: 1.5rem 0;
+    padding: 0;
+	
+	li.menu-item {
+		display: inline-block;
+		margin: 0 10px;
+		
+		a {
+			color: $blue;
+			
+			&:hover, &:focus {
+				color: $purple;
+			}
+		}
+	}
+}
+
+.welcome:not(h2) {
+	float: right;
+	clear: none;
+	margin: 1.5rem 1rem;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.search-box {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 1em;
+	
+	#s {
+		background: none;
+		color: $white;
+		border-bottom: 1px solid $white;
+		border-left: none;
+		border-top: none;
+		border-right: none;
+		outline: none;
+		padding: 0;
+		width: 190px;
+		font-size: 0.675rem;
+		
+		@include placeholder {
+			color: $white;
+		}
+	}
+	
+	button {
+		top: 1px;
+		left: -2px;
+		position: relative;
+		border: none;
+		outline: none;
+		background: none;
+		padding: 0;
+		color: $white;
+	}
+}
+
+body:not(.is-mobile) {
+	.nav {
+		.menu-item {
+			display: inline-block;
+
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+	
+	.menu-button {
+		display: none;
+	}
+	
+	.primary-nav {
+		position: relative;
+		display: block;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		@include prefix(align-items, center, webkit moz ms o);
+		@include prefix(justify-content, center, webkit moz ms o);
+		max-height: none;
+		top: auto;
+		border: none;
+		background: $blue;
+		text-align: center;
+		overflow: visible;
+		
+		li {
+			padding: 0 1.5rem;
+			font-size: 1.15rem;
+			margin: 0;
+			
+			a {
+				font-size: .8rem;
+			}
+			
+			&.mobile-links {
+				display: none;
+			}
+		}
+		
+		> li {
+			position: relative;
+			@include transition(all 0.3s ease-in-out);
+			
+			a {
+				color: $white;
+				border: none;
+				
+				&:hover,
+				&:focus {
+					
+				}
+			}
+			
+			&:hover,
+			&:focus {
+				background: $purple;
+				
+				ul.sub-menu,
+				ul.children {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			ul.sub-menu,
+			ul.children {
+				position: absolute;
+				left: 0;
+				width: 260px;
+				background: $white;
+				opacity: 0;
+				visibility: hidden;
+				z-index: 10;
+				max-height: none;
+				@include transition(all 0.3s ease-in-out);
+				
+				li {
+					border-bottom: 1px solid $light-gray;
+					
+					a {
+						color: $black;
+						
+						&:hover,
+						&:focus {
+							color: $purple;
+						}
+					}
+					
+					&:last-child {
+						border-bottom: 4px solid $blue;
+					}
+
+				}
+
+				/* highlight sub-menu current page */
+				li.current-menu-item,
+				li.current_page_item,
+				li.current_page_ancestor {
+					a {
+						color: $purple;
+					}
+				}
+			}
+
+		} /* end .menu li */
+
+		/* highlight current page */
+		> li.current_page_item,
+		> li.current-menu-ancestor,
+		> li.current-menu-item,
+		> li.current_page_ancestor {
+			background: $purple;
+			
+			> a {
+			}
+		}
+	}
+}
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#content {
+}
+
+.featured-image {
+	width: 100%;
+    margin-left: auto;
+}
+
+.page-title {
+	font-size: 1rem;
+}
+
+.entry-content {
+	padding: 3rem;
+	font-size: 1rem;
+	
+	ul {
+		&.col-2 {
+			padding: 0;
+			
+			li {
+				width: 48%;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.vc_row {
+	&.hero-wrapper {
+		.wpb_text_column {
+			position: absolute;
+			top: 25%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			color: $white;
+			background: none;
+			padding: 0;
+			
+			h1 {
+				font-size: 2em;
+    			font-weight: 400;
+				color: $white;
+			}
+		}
+	}
+	
+	&.null-gaps {
+		.wpb_content_element,
+		.vc_col-sm-4 .vc_column-inner,
+		.vc_col-sm-8 .vc_column-inner {
+			margin: 0;
+			padding: 0;
+		}
+		
+		p, p:last-child {
+			margin-top: 0;
+		}
+	}
+}
+
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+}
+
+.flex {
+	@include prefix(flex-direction, row, webkit ms);
+	
+	.flex-panel {
+		width: 33.333%;
+	}
+}
+
+.gallery {
+	&.gallery-columns-2 {
+		.gallery-item {
+			width: 50%;
+		}
+	}
+}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+}
+
+.widgettitle {
+	border-bottom: 1px solid $gray;
+	margin-bottom: 0.75em;
+}
+
+.widget {
+	padding: 0 10px;
+
+	ul {
+		li {
+			margin-bottom: 0.75em;
+
+			ul {
+				margin-top: 0.75em;
+				padding-left: 1em;
+			}
+		}
+	}
+}
+
+
+/*********************
+FOOTER STYLES
+*********************/
+
